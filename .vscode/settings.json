@@ -7,6 +7,12 @@
             "API Atelier IRIS": "http://${host}:${port}/api/atelier/",
             "API Atelier IRIS-DEV": "http://${host}:${port}/iris-dev/api/atelier/",
             "API Atelier IRIS-TEST": "http://${host}:${port}/iris-test/api/atelier/",
+            "IRIS API Management": "http://localhost:8888/api/mgmnt/",
+            "IRIS TEST API Management": "http://localhost:8888/iris-test/api/mgmnt/",
+            "IRIS DEV API Management": "http://localhost:8888/iris-dev/api/mgmnt/",
+            "IRIS METRICS": "http://localhost:8888/api/monitor/metrics",
+            "IRIS TEST METRICS": "http://localhost:8888/iris-test/api/monitor/metrics",
+            "IRIS DEV METRICS": "http://localhost:8888/iris-dev/api/monitor/metrics",
             "Web Gateway Management": "http://${host}:${port}/csp/bin/Systems/Module.cxw",
             "Class Reference": "http://${host}:${port}/csp/documatic/%25CSP.Documatic.cls?LIBRARY=USER"
         }
