@@ -11,7 +11,7 @@
 
 ### IRIS License (iris.key)
 
-*NB : Before starting the containers, you need to first copy your own IRIS License into [./iris/iris.key](./iris/iris.key)*
+*NB : Before starting the containers, you need to first copy your own IRIS License into [./iris/iris.key](./iris/iris-x64.key)*
 
 
 * [start.sh](./start.sh) - spins up all containers via docker-compose and 
