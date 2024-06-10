@@ -1,0 +1,14 @@
+{
+    "objectscript.conn": {
+        "ns": "USER",
+        "port": 8888,
+        "active": true,
+        "links": {
+            "API Atelier IRIS": "http://${host}:${port}/api/atelier/",
+            "API Atelier IRIS-DEV": "http://${host}:${port}/iris-dev/api/atelier/",
+            "API Atelier IRIS-TEST": "http://${host}:${port}/iris-test/api/atelier/",
+            "Web Gateway Management": "http://${host}:${port}/csp/bin/Systems/Module.cxw",
+            "Class Reference": "http://${host}:${port}/csp/documatic/%25CSP.Documatic.cls?LIBRARY=USER"
+        }
+    }
+}

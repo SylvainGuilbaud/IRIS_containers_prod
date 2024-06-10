@@ -1,0 +1,49 @@
+version: '3.7'
+services:
+  iris:
+    image: ${IRIS_EM} # EXTENDED MAINTENANCE
+    init: true
+    container_name: ${IRIS}
+    hostname: ${IRIS}
+    volumes:
+    - type: bind
+      source: ./iris
+      target: /iris-shared
+    command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+
+  iris-test:
+    image: ${IRIS_CD} # CONTINUOUS DELIVERY
+    init: true
+    container_name: ${IRISTEST}
+    hostname: ${IRISTEST}
+    volumes:
+    - type: bind
+      source: ./iris
+      target: /iris-shared
+    command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+
+  iris-dev:
+    image: ${IRIS_DP} # DEVELOPER PREVIEW
+    init: true
+    container_name: ${IRISDEV}
+    hostname: ${IRISDEV}
+    volumes:
+    - type: bind
+      source: ./iris
+      target: /iris-shared
+    command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+
+  webgateway:
+    image: ${WEBGATEWAY}
+    init: true
+    container_name: ${WEBGATEWAY_NAME}
+    hostname: ${WEBGATEWAY_NAME}
+    ports:
+    - ${WEBGATEWAY_PORT}:80
+    environment:
+    - ISC_CSP_CONF_FILE=/webgateway-shared/CSP.conf
+    - ISC_CSP_INI_FILE=/webgateway-shared/CSP.ini
+    volumes:
+    - type: bind
+      source: ./webgateway
+      target: /webgateway-shared
