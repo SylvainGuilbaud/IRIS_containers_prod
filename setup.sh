@@ -1,4 +1,4 @@
-source parameters.cfg
+# source parameters.cfg
 
 #; Prior to running the docker-compose, ensure the instances have
 #; read-write permissions to the bindmounts.
