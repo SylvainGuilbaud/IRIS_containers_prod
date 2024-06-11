@@ -10,6 +10,8 @@ services:
       source: ./iris
       target: /iris-shared
     command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+    ports:
+      - 10001:1972
 
   iris-test:
     image: ${IRIS_CD} # CONTINUOUS DELIVERY
@@ -21,6 +23,8 @@ services:
       source: ./iris
       target: /iris-shared
     command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+    ports:
+      - 10002:1972
 
   iris-dev:
     image: ${IRIS_DP} # DEVELOPER PREVIEW
@@ -32,6 +36,8 @@ services:
       source: ./iris
       target: /iris-shared
     command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+    ports:
+      - 10003:1972
 
   webgateway:
     image: ${WEBGATEWAY}
@@ -40,6 +46,7 @@ services:
     hostname: ${WEBGATEWAY_NAME}
     ports:
     - ${WEBGATEWAY_PORT}:80
+    - 8443:443
     environment:
     - ISC_CSP_CONF_FILE=/webgateway-shared/CSP.conf
     - ISC_CSP_INI_FILE=/webgateway-shared/CSP.ini
