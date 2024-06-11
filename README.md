@@ -2,9 +2,9 @@
 
 ## This is a simple docker-compose demo that spins up four containers: 
 
-* [iris EXTENDED MAINTENANCE](./docker-compose.yml)
-* [iris-test CONTINUOUS DELIVERY](./docker-compose.yml)
-* [iris-dev DEVELOPER PREVIEW](./docker-compose.yml)
+* [IRIS EXTENDED MAINTENANCE](./docker-compose.yml)
+* [IRIS test CONTINUOUS DELIVERY](./docker-compose.yml)
+* [IRIS dev DEVELOPER PREVIEW](./docker-compose.yml)
 * [webgateway - the standalone Web Gateway container (Apache-based)](./docker-compose.yml)
 
 ## How to run it
