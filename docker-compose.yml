@@ -1,56 +1,55 @@
 version: '3.7'
 services:
-  iris:
-    image: ${IRIS_EM} # EXTENDED MAINTENANCE
+  iris-em:
+    image: ${IMAGE_IRIS_EM} # EXTENDED MAINTENANCE
     init: true
-    container_name: ${IRIS}
-    hostname: ${IRIS}
+    container_name: ${CONTAINER_IRIS_EM}
+    hostname: ${CONTAINER_IRIS_EM}
     volumes:
     - type: bind
-      source: ./iris
-      target: /iris-shared
-    command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+      source: ./IRIS
+      target: /IRIS
+    command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
       - 10001:1972
 
-  iris-test:
-    image: ${IRIS_CD} # CONTINUOUS DELIVERY
+  iris-cd:
+    image: ${IMAGE_IRIS_CD} # CONTINUOUS DELIVERY
     init: true
-    container_name: ${IRISTEST}
-    hostname: ${IRISTEST}
+    container_name: ${CONTAINER_IRIS_CD}
+    hostname: ${CONTAINER_IRIS_CD}
     volumes:
     - type: bind
-      source: ./iris
-      target: /iris-shared
-    command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+      source: ./IRIS
+      target: /IRIS
+    command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
       - 10002:1972
 
-  iris-dev:
-    image: ${IRIS_DP} # DEVELOPER PREVIEW
+  iris-preview:
+    image: ${IMAGE_IRIS_PREVIEW} # DEVELOPER PREVIEW
     init: true
-    container_name: ${IRISDEV}
-    hostname: ${IRISDEV}
+    container_name: ${CONTAINER_IRIS_PREVIEW}
+    hostname: ${CONTAINER_IRIS_PREVIEW}
     volumes:
     - type: bind
-      source: ./iris
-      target: /iris-shared
-    command: --key /iris-shared/iris.key -a /iris-shared/configure.sh
+      source: ./IRIS
+      target: /IRIS
+    command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
       - 10003:1972
 
   webgateway:
     image: ${WEBGATEWAY}
     init: true
-    container_name: ${WEBGATEWAY_NAME}
     hostname: ${WEBGATEWAY_NAME}
     ports:
-    - ${WEBGATEWAY_PORT}:80
-    - 8443:443
+    - ${WEBGATEWAY_PORT_HTTP}:80
+    - ${WEBGATEWAY_PORT_HTTPS}:443
     environment:
-    - ISC_CSP_CONF_FILE=/webgateway-shared/CSP.conf
-    - ISC_CSP_INI_FILE=/webgateway-shared/CSP.ini
+    - ISC_CSP_CONF_FILE=/webgateway/CSP.conf
+    - ISC_CSP_INI_FILE=/webgateway/CSP.ini
     volumes:
     - type: bind
       source: ./webgateway
-      target: /webgateway-shared
+      target: /webgateway
