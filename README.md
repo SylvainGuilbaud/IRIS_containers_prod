@@ -51,7 +51,6 @@ With this pod, the user can access each instance's Management Portal immediately
 * [License Key PREVIEW](http://localhost:58880/iris-latest-preview/csp/sys/mgr/%25CSP.UI.Portal.License.Key.zen)
 
 
-
 ## Sources
 Special thanks to [Sarah Matthews](https://github.com/sgmatthews) and [Bob Kuszewski](https://github.com/kuszewski) for their [web gateway samples](https://github.com/intersystems-community/webgateway-examples)
 
