@@ -1,6 +1,6 @@
 # Example of using Web Gateway with 3 IRIS instances (EM, CD, preview)
 
-## This is a simple docker-compose demo that spins up four containers: 
+## This is a simple docker-compose example that spins up four containers based on the 3 latest editions of IRIS + 1 container for the web gateway : 
 
 * [IRIS EXTENDED MAINTENANCE](./docker-compose.yml)
 * [IRIS CONTINUOUS DELIVERY](./docker-compose.yml)
@@ -49,6 +49,10 @@ With this pod, the user can access each instance's Management Portal immediately
 * [License Key EM](http://localhost:58880/iris-latest-em/csp/sys/mgr/%25CSP.UI.Portal.License.Key.zen)
 * [License Key CD](http://localhost:58880/iris-latest-cd/csp/sys/mgr/%25CSP.UI.Portal.License.Key.zen)
 * [License Key PREVIEW](http://localhost:58880/iris-latest-preview/csp/sys/mgr/%25CSP.UI.Portal.License.Key.zen)
+### Management Portal
+* [Management Portal EM](http://localhost:58880/iris-latest-em/csp/sys/UtilHome.csp)
+* [Management Portal CD](http://localhost:58880/iris-latest-cd/csp/sys/UtilHome.csp)
+* [Management Portal PREVIEW](http://localhost:58880/iris-latest-preview/csp/sys/UtilHome.csp)
 
 
 ## Sources
