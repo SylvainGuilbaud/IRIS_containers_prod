@@ -10,7 +10,7 @@ services:
       target: /IRIS
     command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
-      - 10000:1972
+      - 10001:1972
 
   iris-cd:
     image: ${IMAGE_IRIS_CD} # CONTINUOUS DELIVERY
