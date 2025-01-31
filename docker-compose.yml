@@ -10,7 +10,7 @@ services:
       target: /IRIS
     command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
-      - 10001:1972
+      - 12001:1972
 
   iris-cd:
     image: ${IMAGE_IRIS_CD} # CONTINUOUS DELIVERY
@@ -23,7 +23,7 @@ services:
       target: /IRIS
     command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
-      - 10002:1972
+      - 12002:1972
 
   iris-preview:
     image: ${IMAGE_IRIS_PREVIEW} # DEVELOPER PREVIEW
@@ -36,7 +36,7 @@ services:
       target: /IRIS
     command: --key /IRIS/iris.key -a /IRIS/configure.sh
     ports:
-      - 10003:1972
+      - 12003:1972
 
   webgateway:
     image: ${WEBGATEWAY}
