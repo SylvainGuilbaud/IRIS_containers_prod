@@ -19,7 +19,7 @@ services:
     environment:
       # - ISC_DATA_DIRECTORY=/volumes/${DEVELOPER_PREVIEW}
       - ISC_CPF_MERGE_FILE=/IRIS/merge.cpf
-      - TZ=Europe/Paris
+      # - TZ=Europe/Paris
 
   iris-cd:
     image: ${IMAGE_IRIS_CD} # CONTINUOUS DELIVERY
