@@ -8,9 +8,18 @@ services:
     - type: bind
       source: ./IRIS
       target: /IRIS
+    # - type: bind
+    #   source: ./volumes
+    #   target: /volumes
+    - "/etc/timezone:/etc/timezone:ro"
+    - "/etc/localtime:/etc/localtime:ro"
     command: --key /IRIS/key/iris.key -a /IRIS/configure.sh
     ports:
       - 12001:1972
+    environment:
+      # - ISC_DATA_DIRECTORY=/volumes/${DEVELOPER_PREVIEW}
+      - ISC_CPF_MERGE_FILE=/IRIS/merge.cpf
+      - TZ=Europe/Paris
 
   iris-cd:
     image: ${IMAGE_IRIS_CD} # CONTINUOUS DELIVERY
@@ -21,9 +30,18 @@ services:
     - type: bind
       source: ./IRIS
       target: /IRIS
+    # - type: bind
+    #   source: ./volumes
+    #   target: /volumes
+    # - "/etc/timezone:/etc/timezone:ro"
+    # - "/etc/localtime:/etc/localtime:ro"
     command: --key /IRIS/key/iris.key -a /IRIS/configure.sh
     ports:
       - 12002:1972
+    environment:
+      # - ISC_DATA_DIRECTORY=/volumes/${DEVELOPER_PREVIEW}
+      - ISC_CPF_MERGE_FILE=/IRIS/merge.cpf
+      - TZ=Europe/Paris
 
   iris-preview:
     image: ${IMAGE_IRIS_PREVIEW} # DEVELOPER PREVIEW
@@ -34,9 +52,18 @@ services:
     - type: bind
       source: ./IRIS
       target: /IRIS
+    # - type: bind
+    #   source: ./volumes
+    #   target: /volumes
+    # - "/etc/timezone:/etc/timezone:ro"
+    # - "/etc/localtime:/etc/localtime:ro"
     command: --key /IRIS/key/iris.key -a /IRIS/configure.sh
     ports:
       - 12003:1972
+    environment:
+      # - ISC_DATA_DIRECTORY=/volumes/${DEVELOPER_PREVIEW}
+      - ISC_CPF_MERGE_FILE=/IRIS/merge.cpf
+      - TZ=Europe/Paris
 
   webgateway:
     image: ${WEBGATEWAY}
