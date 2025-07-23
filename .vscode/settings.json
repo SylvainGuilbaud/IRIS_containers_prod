@@ -1,11 +1,9 @@
 {
     "objectscript.conn": {
         "ns": "USER",
+        "active": false,
+        "server": "iris-prod-em",
         "port": 52880,
-        "active": true,
-        "host": "localhost",
-        "username": "_SYSTEM",
-        "password": "SYS",
         "links": {
             "EM Management Portal": "http://${host}:${port}/iris-latest-em/csp/sys/UtilHome.csp",
             "CD Management Portal": "http://${host}:${port}/iris-latest-cd/csp/sys/UtilHome.csp",
