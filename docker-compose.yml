@@ -5,19 +5,14 @@ services:
     container_name: ${CONTAINER_IRIS_EM}
     hostname: ${CONTAINER_IRIS_EM}
     volumes:
-    - type: bind
-      source: ./IRIS
-      target: /IRIS
-    - type: bind
-      source: ./volumes
-      target: /volumes
+    - ./IRIS:/IRIS
     - "/etc/timezone:/etc/timezone:ro"
     - "/etc/localtime:/etc/localtime:ro"
     command: --key /IRIS/key/iris.key 
     ports:
       - 12001:1972
     environment:
-      - ISC_DATA_DIRECTORY=/volumes/${EXTENDED_MAINTENANCE}
+      - ISC_DATA_DIRECTORY=/IRIS/${EXTENDED_MAINTENANCE}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-em.cpf
       # - TZ=Europe/Paris
 
@@ -27,19 +22,12 @@ services:
     container_name: ${CONTAINER_IRIS_CD}
     hostname: ${CONTAINER_IRIS_CD}
     volumes:
-    - type: bind
-      source: ./IRIS
-      target: /IRIS
-    - type: bind
-      source: ./volumes
-      target: /volumes
-    # - "/etc/timezone:/etc/timezone:ro"
-    # - "/etc/localtime:/etc/localtime:ro"
+    - ./IRIS:/IRIS
     command: --key /IRIS/key/iris.key 
     ports:
       - 12002:1972
     environment:
-      - ISC_DATA_DIRECTORY=/volumes/${CONTINUOUS_DELIVERY}
+      - ISC_DATA_DIRECTORY=/IRIS/${CONTINUOUS_DELIVERY}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-cd.cpf
       - TZ=Europe/Paris
 
@@ -49,19 +37,12 @@ services:
     container_name: ${CONTAINER_IRIS_PREVIEW}
     hostname: ${CONTAINER_IRIS_PREVIEW}
     volumes:
-    - type: bind
-      source: ./IRIS
-      target: /IRIS
-    - type: bind
-      source: ./volumes
-      target: /volumes
-    # - "/etc/timezone:/etc/timezone:ro"
-    # - "/etc/localtime:/etc/localtime:ro"
+    - ./IRIS:/IRIS
     command: --key /IRIS/key/iris.key 
     ports:
       - 12003:1972
     environment:
-      - ISC_DATA_DIRECTORY=/volumes/${DEVELOPER_PREVIEW}
+      - ISC_DATA_DIRECTORY=/IRIS/${DEVELOPER_PREVIEW}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-preview.cpf
       - TZ=Europe/Paris
 
@@ -76,6 +57,4 @@ services:
     - ISC_CSP_CONF_FILE=/webgateway/CSP.conf
     - ISC_CSP_INI_FILE=/webgateway/CSP.ini
     volumes:
-    - type: bind
-      source: ./webgateway
-      target: /webgateway
+    - ./webgateway:/webgateway
