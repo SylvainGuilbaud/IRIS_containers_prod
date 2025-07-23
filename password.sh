@@ -1,0 +1,1 @@
+echo $1 | docker run --rm -i containers.intersystems.com/intersystems/passwordhash:1.1
