@@ -12,7 +12,7 @@ services:
     ports:
       - 12001:1972
     environment:
-      - ISC_DATA_DIRECTORY=/IRIS/${EXTENDED_MAINTENANCE}
+      - ISC_DATA_DIRECTORY=/IRIS/storage/${EXTENDED_MAINTENANCE}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-em.cpf
       # - TZ=Europe/Paris
 
@@ -27,7 +27,7 @@ services:
     ports:
       - 12002:1972
     environment:
-      - ISC_DATA_DIRECTORY=/IRIS/${CONTINUOUS_DELIVERY}
+      - ISC_DATA_DIRECTORY=/IRIS/storage/${CONTINUOUS_DELIVERY}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-cd.cpf
       - TZ=Europe/Paris
 
@@ -42,7 +42,7 @@ services:
     ports:
       - 12003:1972
     environment:
-      - ISC_DATA_DIRECTORY=/IRIS/${DEVELOPER_PREVIEW}
+      - ISC_DATA_DIRECTORY=/IRIS/storage/${DEVELOPER_PREVIEW}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-preview.cpf
       - TZ=Europe/Paris
 

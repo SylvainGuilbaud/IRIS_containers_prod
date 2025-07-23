@@ -1,6 +1,3 @@
 # **/iris.key
 **/*.DS_Store
-**/IRIS.DAT
-IRIS/latest-em
-IRIS/latest-cd
-IRIS/latest-preview
+IRIS/storage
