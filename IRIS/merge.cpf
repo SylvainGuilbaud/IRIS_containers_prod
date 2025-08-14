@@ -7,6 +7,10 @@ routines=0
 jrnbufs=1024
 
 [Actions]
+
+Execute:Namespace="%SYS",ClassName="Security.Users",MethodName="UnExpireUserPasswords",Arg1="*"
+Execute:Namespace="%SYS",ClassName="%SQL.Statement",MethodName="%ExecDirect",Arg1="",Arg2="update security.events set enabled=1"
+
 CreateNamespace:Name=%ALL,Globals=IRISTEMP,Routines=IRISTEMP
 CreateMapPackage:Namespace=%ALL,Name=common,Database=USER
 CreateMapRoutine:Namespace=%ALL,Name=common,Database=USER

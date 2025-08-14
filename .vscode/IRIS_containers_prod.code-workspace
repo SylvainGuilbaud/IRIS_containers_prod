@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "iris-prod-em:IRISAPP",
+			"uri": "isfs://iris-prod-em:irisapp/"
+		},
+		{
+			"name": "iris-prod-em (/csp/irisapp)",
+			"uri": "isfs://iris-prod-em:irisapp/csp/irisapp?csp"
+		},
+		{
+			"name": "iris-prod-em (/csp/user)",
+			"uri": "isfs://iris-prod-em:user/csp/user?csp"
+		}
+	],
+	"settings": {}
+}

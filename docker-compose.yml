@@ -6,15 +6,16 @@ services:
     hostname: ${CONTAINER_IRIS_EM}
     volumes:
     - ./IRIS:/IRIS
-    - "/etc/timezone:/etc/timezone:ro"
-    - "/etc/localtime:/etc/localtime:ro"
+    - ./irisdata:$ISC_DATA_DIRECTORY
+    # - "/etc/timezone:/etc/timezone:ro"
+    # - "/etc/localtime:/etc/localtime:ro"
     command: --key /IRIS/key/iris.key 
     ports:
       - 12001:1972
     environment:
-      - ISC_DATA_DIRECTORY=/IRIS/storage/${EXTENDED_MAINTENANCE}
+      - ISC_DATA_DIRECTORY=${ISC_DATA_DIRECTORY}${EXTENDED_MAINTENANCE}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-em.cpf
-      # - TZ=Europe/Paris
+      - TZ=Europe/Paris
 
   iris-cd:
     image: ${IMAGE_IRIS_CD} # CONTINUOUS DELIVERY
@@ -23,11 +24,12 @@ services:
     hostname: ${CONTAINER_IRIS_CD}
     volumes:
     - ./IRIS:/IRIS
+    - ./irisdata:$ISC_DATA_DIRECTORY
     command: --key /IRIS/key/iris.key 
     ports:
       - 12002:1972
     environment:
-      - ISC_DATA_DIRECTORY=/IRIS/storage/${CONTINUOUS_DELIVERY}
+      - ISC_DATA_DIRECTORY=${ISC_DATA_DIRECTORY}${CONTINUOUS_DELIVERY}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-cd.cpf
       - TZ=Europe/Paris
 
@@ -38,11 +40,12 @@ services:
     hostname: ${CONTAINER_IRIS_PREVIEW}
     volumes:
     - ./IRIS:/IRIS
+    - ./irisdata:$ISC_DATA_DIRECTORY
     command: --key /IRIS/key/iris.key 
     ports:
       - 12003:1972
     environment:
-      - ISC_DATA_DIRECTORY=/IRIS/storage/${DEVELOPER_PREVIEW}
+      - ISC_DATA_DIRECTORY=${ISC_DATA_DIRECTORY}${DEVELOPER_PREVIEW}
       - ISC_CPF_MERGE_FILE=/IRIS/merge-preview.cpf
       - TZ=Europe/Paris
 
@@ -56,5 +59,7 @@ services:
     environment:
     - ISC_CSP_CONF_FILE=/webgateway/CSP.conf
     - ISC_CSP_INI_FILE=/webgateway/CSP.ini
+    - TZ=Europe/Paris
+    - ISC_DATA_DIRECTORY=/webgateway
     volumes:
     - ./webgateway:/webgateway

@@ -1,0 +1,10 @@
+dataclasses-json==0.5.7
+requests==2.31.0
+iris-pex-embedded-python==3.5.1b3
+iris-embedded-python-wrapper
+pytest
+requests
+intersystems-irispython
+notebook
+ipykernel
+sqlalchemy-iris
